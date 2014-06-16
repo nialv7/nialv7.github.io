@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>You are not supposed to be here...</title>
-	<meta name="google-site-verification" content="vMaUP2OO4-ioef2rQwPKypCa7TZfU9-RJitQAQ1-43Y" />
+---
+layout: default
+title: "You are not supposed to be here..."
+---
 	<style type="text/css">
 		.entry {
 			display : inline;
@@ -11,6 +9,16 @@
 		#otitle {
 			transition : margin-top 0.15s ease-in;
 			-webkit-transition : margin-top 0.15s ease-in;
+		}
+		.hidden {
+			text-decoration:none;
+		}
+		.hidden:link,
+		.hidden:visited,
+		.hidden:hover,
+		.hidden:focus,
+		.hidden:active {
+			color: white;
 		}
 	</style>
 	<script>
@@ -23,9 +31,10 @@
 			a.style["margin-top"] = "-111px";
 		}
 	</script>
-</head>
-<body>
 	<div id="main" style="width:100%;text-align:center">
+		<div style="position:absolute;color:#ffffff;left:80%;top:60%">
+			<a class="hidden" href="/baby_steps.html">Break the Wall</a>
+		</div>
 		<table style="margin:auto;display:inline-block;">
 			<tr>
 				<td><p style="font-size:50px;margin-right:30px">〜</p></td>
@@ -58,5 +67,3 @@
 			<p><i>请在twitter上@7niaL</i></p>
 		</div>
 	</div>
-</body>
-</html>
