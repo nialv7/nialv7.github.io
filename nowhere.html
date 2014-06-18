@@ -1,0 +1,91 @@
+---
+redirect_from: "/anywhere/"
+layout: default
+---
+<style>
+	.char {
+		position : absolute;
+		font-weight : bold;
+		background-color : white;
+		font-size : 60px;
+		display : inline-block;
+		line-height : 100%;
+		padding : 0px 8px 8px 8px;
+		-webkit-animation : flick 0.1s steps(1, start) infinite;
+		animation : flick 0.1s steps(1, start) infinite;
+	}
+	@keyframes flick {
+		0% {background-color : rgba(255,255,255,1);}
+		50% {background-color : rgba(255,255,255,0.9);}
+	}
+	@-webkit-keyframes flick {
+		0% {background-color : rgba(255,255,255,1);}
+		50% {background-color : rgba(255,255,255,0.9);}
+	}
+	#link {
+		left : 540px;
+		top : 300px;
+		position : absolute;
+		font-size : 28px;
+		font-weight : bold;
+		z-index : 1000;
+		background : white;
+		padding : 10px;
+		text-decoration : none;
+		border : solid;
+		color : black;
+	}
+	#link:hover {
+		color : #505050;
+	}
+	#link:visited {
+		color : #1f1f1f;
+	}
+	#link:active {
+		color : #b0b0b0;
+	}
+	.eye {
+		position : absolute;
+		font-size : 40px;
+		z-index : -1;
+		animation : eopen 1s ease 1 forwards;
+		-webkit-animation : eopen 1s ease 1 forwards;
+		transform : scaleY(0);
+		-webkit-transform : scaleY(0);
+		color : white
+	}
+	@keyframes eopen {
+		to { transform : scaleY(1); }
+	}
+	@-webkit-keyframes eopen {
+		to { -webkit-transform : scaleY(1); }
+	}
+	body {
+		background : black;
+	}
+</style>
+<script src="/jquery.min.js"></script>
+<script src="/plax.js"></script>
+<div style="width:1300px;margin:auto;position:relative;">
+<div id="chars" style="height:400px">
+<div class="char" style="left:20px;top:10px;z-index:900" data-xrange="20" data-yrange="20">O</div>
+<div class="char" style="left:90px;top:15px" data-xrange="20" data-yrange="20" data-invert="true">p</div>
+<div class="char" style="left:130px;top:5px" data-xrange="10" data-yrange="10" data-invert="true">e</div>
+<div class="char" style="left:190px;top:10px" data-xrange="20" data-yrange="20" data-invert="true">n</div>
+<div class="char" style="left:270px;top:5px" data-xrange="20" data-yrange="20">u</div>
+<div class="char" style="left:330px;top:10px" data-xrange="10" data-yrange="10" data-invert="true">p</div>
+<div class="char" style="left:70px;top:90px;z-index:800" data-xrange="18" data-yrange="18">Y</div>
+<div class="char" style="left:130px;top:100px" data-xrange="20" data-yrange="20" data-invert="true">o</div>
+<div class="char" style="left:180px;top:95px" data-xrange="10" data-yrange="10" data-invert="true">u</div>
+<div class="char" style="left:240px;top:105px" data-xrange="20" data-yrange="20">r</div>
+<div class="char" style="left:60px;top:170px" data-xrange="10" data-yrange="10">e</div>
+<div class="char" style="left:110px;top:175px" data-xrange="5" data-yrange="5" data-invert="true">y</div>
+<div class="char" style="left:160px;top:180px" data-xrange="5" data-yrange="5">e</div>
+<div class="char" style="left:210px;top:170px" data-xrange="15" data-yrange="15">s</div>
+</div>
+<a id="link" href="#opened_1" onclick="neweye()">Open your 100 eyes</a>
+</div>
+<script>
+$(document).ready(function(){$(".char").plaxify();$.plax.enable();if(window.location.hash){var n=parseInt(window.location.hash.replace("#opened_", ""));if(n){count=100-n;$("#link")[0].textContent="Open your "+count+" eyes";}}});var newy=400*Math.random()+20,newx=1100*Math.random()+100,count=100,a=0;function neweye(){var b=document.createElement("div");b.style.left=newx+"px";b.style.top=newy+"px";b.className="eye";b.textContent="Eye";newy=600*Math.random()+20;newx=1000*Math.random()+30;document.body.appendChild(b);var c=$("#link")[0];c.style.left=300*Math.random()+300+"px";c.style.top=100*Math.random()+300+"px";count--;c.textContent="Open your "+count+" eyes";1E3==count&&a&&newy&&(document.location.href="/new_world.html");setTimeout(function(){c.href="#opened_"+(101-count)},0)};
+</script>
+<a style="display:block;width:100px;margin:10000px auto 0 auto;color:white;" href="/hell.html">Open My Eyes</a>
