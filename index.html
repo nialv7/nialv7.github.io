@@ -50,6 +50,9 @@ title: "You are not supposed to be here..."
 			-webkit-transition : opacity 2s;
 			transition : opacity 2s;
 		}
+		#header {
+			font-family: 'Exo 2', sans-serif;
+		}
 	</style>
 	<script>
 		var cx, cy;
@@ -60,6 +63,12 @@ title: "You are not supposed to be here..."
 			cx = (rect.left+rect.right)/2;
 			cy = (rect.top+rect.bottom)/2;
 			document.body.onmousemove = hint;
+			a = document.getElementById("otitle");
+			var a1 = a.getClientRects()["0"].height;
+			a = document.getElementById("htitle");
+			var a2 = a.getClientRects()["0"].height;
+			a = document.getElementById("con");
+			a.style["max-height"] = Math.max(a1, a2)+"px";
 		};
 		window.onresize = function(){
 			var a = document.getElementById("breaker");
@@ -131,13 +140,13 @@ title: "You are not supposed to be here..."
 			<div id="you">You</div>
 			<div id="sure">Sure?</div>
 		</div>
-		<table style="margin:auto;display:inline-block;">
+		<table id="header" style="margin:auto;display:inline-block;">
 			<tr>
 				<td><p style="font-size:50px;margin-right:30px">〜</p></td>
 				<td style="font-size:32px;font-weight:bold">
-					<div style="max-height:111px;overflow:hidden">
+					<div id="con" style="max-height:120px;overflow:hidden">
 						<div id="otitle">7niaL<br>的<br>中二小词典</div>
-						<div>The<br>Flying<br>Box(es)</div>
+						<div id="htitle">The<br>Flying<br>Box(es)</div>
 					</div>
 				</td>
 				<td><p style="font-size:50px;margin-left:30px">〜</p></td>
