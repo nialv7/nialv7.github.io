@@ -10,8 +10,17 @@ title: "You are not supposed to be here..."
 			transition : margin-top 0.15s ease-in;
 			-webkit-transition : margin-top 0.15s ease-in;
 		}
+		.secret {
+			color: white;
+			display: inline-block;
+			-webkit-transition : color 2.5s;
+			transition : color 2.5s;
+		}
 		.hidden {
 			text-decoration:none;
+			color: white;
+			font-family : serif;
+			font-size : 18px;
 		}
 		.hidden:link,
 		.hidden:visited,
@@ -20,8 +29,49 @@ title: "You are not supposed to be here..."
 		.hidden:active {
 			color: white;
 		}
+		#are, #you, #sure {
+			-webkit-transition : margin-left 2s, opacity 2s;
+			transition : margin-left 2s, opacity 2s;
+			display : inline-block;
+			opacity : 0;
+			margin-left : 40px;
+		}
+		#sure {
+			background : white;
+			color: black;
+			padding: 2px;
+			cursor : pointer;
+		}
+		#are, #you {
+			color: white;
+		}
+		#bloglink {
+			-webkit-transition : opacity 2s;
+			transition : opacity 2s;
+		}
 	</style>
 	<script>
+		var cx, cy;
+		window.onload = function(){
+			var a = document.getElementById("breaker");
+			var rect = a.getClientRects()["0"];
+			cx = (rect.left+rect.right)/2;
+			cy = (rect.top+rect.bottom)/2;
+			document.body.onmousemove = hint;
+		};
+		function hint(e){
+			var x = e.clientX;
+			var y = e.clientY;
+			var dx = x-cx;
+			var dy = y-cy;
+			var dist = Math.sqrt(dx*dx+dy*dy);
+			if (dist < 200) {
+				var color = 245+0.05*dist;
+				color = Math.round(color);
+				document.body.style.background = "rgb("+color+","+color+","+color+")";
+			}else
+				document.body.style.background = "white";
+		}
 		function slidedown(){
 			var a = document.getElementById("otitle");
 			a.style["margin-top"] = "0px";
@@ -30,10 +80,45 @@ title: "You are not supposed to be here..."
 			var a = document.getElementById("otitle");
 			a.style["margin-top"] = "-111px";
 		}
+		function itallbeginshere(){
+			var a = document.getElementById("are");
+			a.style.opacity = 1;
+			a.style["margin-left"] = "0px";
+			a = document.getElementById("you");
+			a.style.opacity = 1;
+			a.style["margin-left"] = "10px";
+			a = document.getElementById("sure");
+			a.style.opacity = 1;
+			a.style["margin-left"] = "10px";
+			a = document.body;
+			a.onmousemove = "";
+			a.style["-webkit-transition"] = "background 2s";
+			a.style.transition = "background 2s";
+			a.style.background = "#000000";
+			var s = document.querySelectorAll('.secret');
+			for (a in s) {
+				if (typeof s[a] !== "object")
+					continue;
+				s[a].style.color = "#000000";
+			}
+			a = document.getElementById("breaker");
+			a.onmouseout = "";
+			a.onmouseover = "";
+			a.onclick = "";
+			a = document.getElementById("bloglink");
+			a.style.opacity = 0;
+		}
+		function depart() {
+			window.location.href="/baby_steps.html";
+		}
 	</script>
 	<div id="main" style="width:100%;text-align:center">
-		<div style="position:absolute;color:#ffffff;left:80%;top:60%">
-			<a class="hidden" href="/baby_steps.html">Break the Wall</a>
+		<div style="position:absolute;left:80%;top:60%">
+			<a class="hidden" id="breaker" href="#" onclick="itallbeginshere()">Break the Wall</a>
+			<br><br>
+			<div id="are">Are</div>
+			<div id="you">You</div>
+			<div id="sure" onclick="depart()">Sure?</div>
 		</div>
 		<table style="margin:auto;display:inline-block;">
 			<tr>
@@ -47,18 +132,18 @@ title: "You are not supposed to be here..."
 				<td><p style="font-size:50px;margin-left:30px">〜</p></td>
 			</tr>
 		<table>
-		<p><a href="http://log.7thprotocol.org/" onmouseout="slidedown()" onmouseover="slideup()">想找我的blog？</a></p>
+		<p><a href="http://log.7thprotocol.org/" onmouseout="slidedown()" onmouseover="slideup()" id="bloglink">想找我的blog？</a></p>
 		<div style="width:530px;text-align:left;margin:auto" id="dictlist">
 			<div style="margin-left:25px" id="entries">
 				<p><h3 class="entry">Box(es)：</h2>由瓦楞纸做成的纸箱子。外表一般简单，没有花纹或装饰<br>
 				大部分目击者表示他们看见的箱子都不是敞开的，因此内容物不明<br>
 				附注：在晴天却下雨的时候，抬头看，偶尔能看见天空中有箱子飞过。
-				<div style="display:inline-block;color:#ffffff">如果你不小心见到的话，那就要小心了——</div></p>
+				<div class="secret">如果你不小心见到的话，那就要小心了——</div></p>
 				<p><h3 class="entry">Blossom：</h2>近期引发一系列事件的能力者们的代号<br>
-				<div style="display:inline-block;color:#ffffff">“你也能看见吗？那朵美丽的花——”</div></p>
+				<div class="secret">“你也能看见吗？那朵美丽的花——”</div></p>
 				<p><h3 class="entry">Phantum：</h2>
 				21世纪末偶然发现的物理现象。尽管原理不明，但是仍然被实用化，并被广泛使用。<br>
-				<div style="display:inline-block;color:#ffffff">后成为地球毁灭的元凶</div></p>
+				<div class="secret">后成为地球毁灭的元凶</div></p>
 			</div>
 		</div>
 		<div style="margin-top:70px">
