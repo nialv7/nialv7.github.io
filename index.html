@@ -57,6 +57,7 @@ title: "You are not supposed to be here..."
 	<script>
 		var cx, cy;
 		var wall_broken = false;
+		var hheight;
 		window.onload = function(){
 			var a = document.getElementById("breaker");
 			var rect = a.getClientRects()["0"];
@@ -68,7 +69,8 @@ title: "You are not supposed to be here..."
 			a = document.getElementById("htitle");
 			var a2 = a.getClientRects()["0"].height;
 			a = document.getElementById("con");
-			a.style["max-height"] = (Math.max(a1, a2)+4)+"px";
+			hheight = Math.max(a1,a2)+4;
+			a.style["max-height"] = hheight+"px";
 		};
 		window.onresize = function(){
 			var a = document.getElementById("breaker");
@@ -91,22 +93,22 @@ title: "You are not supposed to be here..."
 		}
 		function slidedown(){
 			var a = document.getElementById("otitle");
-			a.style["margin-top"] = "0px";
+			a.style.setProperty("margin-top", "0px");
 		}
 		function slideup(){
 			var a = document.getElementById("otitle");
-			a.style["margin-top"] = "-111px";
+			a.style.setProperty("margin-top", "-"+hheight+"px");
 		}
 		function itallbeginshere(){
 			var a = document.getElementById("are");
 			a.style.opacity = 1;
-			a.style["margin-left"] = "0px";
+			a.style.setProperty("margin-left", "0px");
 			a = document.getElementById("you");
 			a.style.opacity = 1;
-			a.style["margin-left"] = "10px";
+			a.style.setProperty("margin-left", "10px");
 			a = document.getElementById("sure");
 			a.style.opacity = 1;
-			a.style["margin-left"] = "10px";
+			a.style.setProperty("margin-left", "10px");
 			a.onclick = depart;
 			a.style.cursor = "pointer";
 			a = document.body;
@@ -143,7 +145,7 @@ title: "You are not supposed to be here..."
 		<table id="header" style="margin:auto;display:inline-block;">
 			<tr>
 				<td><p style="font-size:50px;margin-right:30px">〜</p></td>
-				<td style="font-size:32px;font-weight:bold">
+				<td style="font-size:32px;font-weight:bold;float:none">
 					<div id="con" style="max-height:120px;overflow:hidden">
 						<div id="otitle">7niaL<br>的<br>中二小词典</div>
 						<div id="htitle">The<br>Flying<br>Box(es)</div>
