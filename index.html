@@ -70,7 +70,7 @@ title: "You are not supposed to be here..."
 			var a2 = a.getClientRects()["0"].height;
 			a = document.getElementById("con");
 			hheight = Math.max(a1,a2)+4;
-			a.style["max-height"] = hheight+"px";
+			a.style.maxHeight = hheight+"px";
 		};
 		window.onresize = function(){
 			var a = document.getElementById("breaker");
@@ -84,8 +84,10 @@ title: "You are not supposed to be here..."
 			var dx = x-cx;
 			var dy = y-cy;
 			var dist = Math.sqrt(dx*dx+dy*dy);
-			if (dist < 200) {
-				var color = 245+0.05*dist;
+			if (dist < 500) {
+				var q=500/(500-dist);
+				q = -(q*q);
+				var color = 255-Math.exp(q+1+Math.log(20));
 				color = Math.round(color);
 				document.body.style.background = "rgb("+color+","+color+","+color+")";
 			}else
@@ -93,22 +95,22 @@ title: "You are not supposed to be here..."
 		}
 		function slidedown(){
 			var a = document.getElementById("otitle");
-			a.style.setProperty("margin-top", "0px");
+			a.style.marginTop = "0px";
 		}
 		function slideup(){
 			var a = document.getElementById("otitle");
-			a.style.setProperty("margin-top", "-"+hheight+"px");
+			a.style.marginTop = "-"+hheight+"px";
 		}
 		function itallbeginshere(){
 			var a = document.getElementById("are");
 			a.style.opacity = 1;
-			a.style.setProperty("margin-left", "0px");
+			a.style.marginLeft = "0px";
 			a = document.getElementById("you");
 			a.style.opacity = 1;
-			a.style.setProperty("margin-left", "10px");
+			a.style.marginLeft = "10px";
 			a = document.getElementById("sure");
 			a.style.opacity = 1;
-			a.style.setProperty("margin-left", "10px");
+			a.style.marginLeft = "10px";
 			a.onclick = depart;
 			a.style.cursor = "pointer";
 			a = document.body;
