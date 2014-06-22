@@ -68,7 +68,7 @@ title: "You are not supposed to be here..."
 			a = document.getElementById("htitle");
 			var a2 = a.getClientRects()["0"].height;
 			a = document.getElementById("con");
-			a.style["max-height"] = Math.max(a1, a2)+"px";
+			a.style["max-height"] = (Math.max(a1, a2)+4)+"px";
 		};
 		window.onresize = function(){
 			var a = document.getElementById("breaker");
