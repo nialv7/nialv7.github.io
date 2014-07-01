@@ -1,0 +1,81 @@
+.entry {
+	display : inline;
+}
+#otitle {
+	transition : margin-top 0.15s ease-in;
+	-webkit-transition : margin-top 0.15s ease-in;
+}
+.secret {
+	color: white;
+	display: inline-block;
+	-webkit-transition : color 2.5s;
+	transition : color 2.5s;
+}
+.hidden {
+	text-decoration:none;
+	opacity : 0;
+	font-family : serif;
+	font-size : 18px;
+}
+.hidden:link,
+.hidden:visited,
+.hidden:hover,
+.hidden:focus,
+.hidden:active {
+	color: white;
+}
+#are, #you, #sure {
+	-webkit-transition : margin-left 2s, opacity 2s;
+	transition : margin-left 2s, opacity 2s;
+	display : inline-block;
+	opacity : 0;
+	margin-left : 40px;
+	cursor : default;
+}
+#sure {
+	background : white;
+	color: black;
+	padding: 2px;
+	font-weight : bold;
+}
+#are, #you {
+	color: white;
+}
+#bloglink {
+	-webkit-transition : opacity 2s;
+	transition : opacity 2s;
+}
+#header {
+	font-family: 'Exo 2', sans-serif;
+}
+.hole_container {
+	text-align : left;
+	width: 100%;
+}
+.hole_container .hole_title {
+	float : right;
+	width: 400px;
+}
+.hole_container .hole_progress {
+	width: 60px;
+	float : right;
+	color : gray;
+	font-size : 14px;
+	font-style : italic;
+	text-align : right;
+	-webkit-transition : color 2s;
+	transition : color 2s;
+}
+.hole_container li {
+	clear : both;
+}
+.hole_container a {
+	text-decoration : none;
+	-webkit-transition : color 2s;
+	transition : color 2s;
+}
+#holes {
+	-webkit-transition : opacity 1s, height 1s;
+	transition : opacity 1s, height 1s;
+	height : 300px;
+}

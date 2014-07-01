@@ -2,165 +2,12 @@
 layout: default
 title: "You are not supposed to be here..."
 ---
-	<style type="text/css">
-		.entry {
-			display : inline;
-		}
-		#otitle {
-			transition : margin-top 0.15s ease-in;
-			-webkit-transition : margin-top 0.15s ease-in;
-		}
-		.secret {
-			color: white;
-			display: inline-block;
-			-webkit-transition : color 2.5s;
-			transition : color 2.5s;
-		}
-		.hidden {
-			text-decoration:none;
-			opacity : 0;
-			font-family : serif;
-			font-size : 18px;
-		}
-		.hidden:link,
-		.hidden:visited,
-		.hidden:hover,
-		.hidden:focus,
-		.hidden:active {
-			color: white;
-		}
-		#are, #you, #sure {
-			-webkit-transition : margin-left 2s, opacity 2s;
-			transition : margin-left 2s, opacity 2s;
-			display : inline-block;
-			opacity : 0;
-			margin-left : 40px;
-			cursor : default;
-		}
-		#sure {
-			background : white;
-			color: black;
-			padding: 2px;
-			font-weight : bold;
-		}
-		#are, #you {
-			color: white;
-		}
-		#bloglink {
-			-webkit-transition : opacity 2s;
-			transition : opacity 2s;
-		}
-		#header {
-			font-family: 'Exo 2', sans-serif;
-		}
-		.hole_container {
-			text-align : left;
-			width: 100%;
-		}
-		.hole_container .hole_title {
-			float : right;
-			width: 400px;
-		}
-		.hole_container .hole_progress {
-			width: 60px;
-			float : right;
-			color : gray;
-			font-size : 14px;
-			font-style : italic;
-			text-align : right;
-		}
-		.hole_container li {
-			clear : both;
-		}
-		.hole_container a {
-			text-decoration : none;
-		}
-	</style>
-	<script>
-		var cx, cy;
-		var wall_broken = false;
-		var hheight;
-		window.onload = function(){
-			var a = document.getElementById("breaker");
-			var rect = a.getClientRects()["0"];
-			cx = (rect.left+rect.right)/2;
-			cy = (rect.top+rect.bottom)/2;
-			document.body.onmousemove = hint;
-			a = document.getElementById("otitle");
-			var a1 = a.getClientRects()["0"].height;
-			a = document.getElementById("htitle");
-			var a2 = a.getClientRects()["0"].height;
-			a = document.getElementById("con");
-			hheight = Math.max(a1,a2)+4;
-			a.style.maxHeight = hheight+"px";
-		};
-		window.onresize = function(){
-			var a = document.getElementById("breaker");
-			var rect = a.getClientRects()["0"];
-			cx = (rect.left+rect.right)/2;
-			cy = (rect.top+rect.bottom)/2;
-		};
-		function hint(e){
-			var x = e.clientX;
-			var y = e.clientY;
-			var dx = x-cx;
-			var dy = y-cy;
-			var dist = Math.sqrt(dx*dx+dy*dy);
-			if (dist < 500) {
-				var q=500/(500-dist);
-				q = -(q*q);
-				var color = 255-Math.exp(q+1+Math.log(20));
-				color = Math.round(color);
-				document.body.style.background = "rgb("+color+","+color+","+color+")";
-			}else
-				document.body.style.background = "white";
-		}
-		function slidedown(){
-			var a = document.getElementById("otitle");
-			a.style.marginTop = "0px";
-		}
-		function slideup(){
-			var a = document.getElementById("otitle");
-			a.style.marginTop = "-"+hheight+"px";
-		}
-		function itallbeginshere(){
-			var a = document.getElementById("are");
-			a.style.opacity = 1;
-			a.style.marginLeft = "0px";
-			a = document.getElementById("you");
-			a.style.opacity = 1;
-			a.style.marginLeft = "10px";
-			a = document.getElementById("sure");
-			a.style.opacity = 1;
-			a.style.marginLeft = "10px";
-			a.onclick = depart;
-			a.style.cursor = "pointer";
-			a = document.body;
-			a.onmousemove = "";
-			a.style["-webkit-transition"] = "background 2s";
-			a.style.transition = "background 2s";
-			a.style.background = "#000000";
-			var s = document.querySelectorAll('.secret');
-			for (a in s) {
-				if (typeof s[a] !== "object")
-					continue;
-				s[a].style.color = "#000000";
-			}
-			a = document.getElementById("breaker");
-			a.onmouseout = "";
-			a.onmouseover = "";
-			a.onclick = "";
-			a.style.opacity = 1;
-			a = document.getElementById("bloglink");
-			a.style.opacity = 0;
-		}
-		function depart() {
-			window.location.href="/baby_steps.html";
-		}
-	</script>
-	<div id="main" style="width:1366px;text-align:center">
+	<link href="index.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="index.js"></script>
+	<script type="text/javascript" src="ss.js"></script>
+	<div id="main" style="width:1300px;text-align:center">
 		<div style="position:absolute;left:80%;top:60%">
-			<a class="hidden" id="breaker" href="#" onclick="itallbeginshere()">Break the Wall</a>
+			<a data-scroll class="hidden" id="breaker" href="#main" onclick="itallbeginshere()">Break the Wall</a>
 			<br><br>
 			<div id="are">Are</div>
 			<div id="you">You</div>
@@ -192,8 +39,8 @@ title: "You are not supposed to be here..."
 				<div class="secret">后成为地球毁灭的元凶</div></p>
 			</div>
 		</div>
+		<div id="holes" style="width:500px;margin:auto">
 		<h1>坑(s)</h1>
-		<div style="width:500px;margin:auto">
 		<div class="hole_container">
 		<b style="padding-left:20px;padding-right:10px">≈</b><b>小说</b>
 		<ul>
