@@ -1,0 +1,70 @@
+==================================================================
+https://keybase.io/nialv7
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://7thprotocol.org
+  * I am nialv7 (https://keybase.io/nialv7) on keybase.
+  * I have a public key with fingerprint 0A36 F6B1 97F5 3B8D 07CA  A553 B045 AF76 7FEC DA48
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "0a36f6b197f53b8d07caa553b045af767fecda48",
+            "host": "keybase.io",
+            "key_id": "b045af767fecda48",
+            "uid": "346f0c4bd12756e1c131c82b89aaba00",
+            "username": "nialv7"
+        },
+        "service": {
+            "hostname": "7thprotocol.org",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1414388309,
+    "expire_in": 157680000,
+    "prev": "87baed4ed37703ceb2192443b2d30e57de143554ba72f45d245d79b2104f82d6",
+    "seqno": 6,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v2
+
+owGbwMvMwMS4wXV9Wf2bWx6Mpw98TmII8b0VW62UlJ9SqWRVrZSdCqbSMvPSU4sK
+ijLzSpSslAwSjc3SzJIMLc3TTI2TLFIMzJMTE02BTAMT08Q0czPztNTklEQTCyUd
+pYz8YpAOoDFJicWpepn5QDEgJz4zBSiKRX0pWMLYxCzNINkkKcXQyNzULNUw2dDY
+MNnCKMnCMjExKdHAAKSwOLUoLzE3Fag6LzMxp8xcqVZHCShWlpmcCnIxyGKovHlJ
+RkFRfkl+cn6OXn5ROlAzjAuUzCgpKbAC6S2pLAApLk9NiocaE5+UmZcC9DhQQ1lq
+UXFmfp6SlSFQZXJJJshcQxNDE2MLC2MDSx2l1IqCzKLU+EyQClNzMwsDIABZk1oG
+NNLCPCkxNcUkNcXY3NzAODk1ycjQ0sjExDjJKMXYINXUPCUVaJCpqUlSorlRmolp
+ihEQm1sCVRmYpFkYpZgpgTxWmJevZGUGdGZiOtDI4sz0vMSS0qJUpVquTiYZFgZG
+JgY2ViZQ3DFwcQrAYnTuKv7/GdnL9sf6l734l3jKqPCJ5UbhFCWLY6c5UsyvN3+t
+2Lth2X75qvt1ce3Cc/+3bKxcI3MlMfn3HkmuifefzL6XFfyuP/3BiumHCuOrlEz8
+jJemTM8OkSydn6bhxV0wX7xbfcVcTtenmauu2Z698WUHd0DHj0d/vouE6DVP7uJv
+PM5x2phlZey9HiuptMx7SpobhdzO7tJu2FPa1T/bNKOg4em8g//mJBx1+XYj05d9
+oi3/QZPVRyec5czXsbIv0WXR48ycam1v/uWz4ZMDHaXZE92DPi9qmvLslfuxwAtO
+V/SjJk2snZEdl1oV/V01o3i9j2J8v2heko6QT4S2raf8ipxbnIvOJKftTbm5Qb74
+/S71LW/bC7edzX37Xsd7eckPnnntVyavOsVt8bpnzZrGK6ttvqqGvrRW27Xp8vXy
+uJV3chl871XN5fDb4rru3oTgo+EsrJ8VuDbW3P37VkD9/mafHa4bG0RaHSwneqQG
+r781iX2a6FXnnetSvrt0v0+f9yFyKdvGxVWr1rresH7L3HgooHtS03VLpurmY8q7
+tic1WHbzWgboMwQ9W/h6jUT2iYtbnwS1eV2R/3WrKIiJJfRSmqWk+7bHXtKL5nO4
+pd6Ok3qxii2dSZyj9sVu3z++X6JkH4VG75xRd/gm35xTIWYiSRP54sLmml9z3XNV
+8wNn+p/Wid8etPNJzbvidlU/RmfympWTZvEwdloAAA==
+=1Jyz
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/nialv7
+
+==================================================================
+
