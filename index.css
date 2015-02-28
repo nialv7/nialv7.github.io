@@ -77,5 +77,4 @@
 #holes {
 	-webkit-transition : opacity 1s, height 1s;
 	transition : opacity 1s, height 1s;
-	height : 300px;
 }
