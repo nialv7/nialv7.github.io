@@ -78,3 +78,7 @@
 	-webkit-transition : opacity 1s, height 1s;
 	transition : opacity 1s, height 1s;
 }
+
+#links a {
+	text-decoration : none;
+}
