@@ -50,12 +50,12 @@
     background: #ffffff;
 }
 
-#circle {
+.circle {
     animation-name: pop;
     animation-duration: 0.2s;
 }
 
-#circle2 {
+.circle2 {
     animation-name: popx;
     animation-duration: 0.2s;
 }
@@ -70,25 +70,25 @@
     color: #e0e0e0;
 }
 .particle1 {
-    -moz-transition: left 0.22s, top 0.22s, transform 1s, background 1s;
+    -moz-transition: left 0.22s, top 0.22s, width 1s, height 1s, background 1s;
     -moz-transition-timing-function: ease-out;
     transition: left 0.22s, top 0.22s, transform 1s, background 1s;
     transition-timing-function: ease-out;
-    -webkit-transition: left 0.22s, top 0.22s, transform 1s, background 1s;
+    -webkit-transition: left 0.22s, top 0.22s, width 1s, height 1s, background 1s;
     -webkit-transition-timing-function: ease-out;
 }
 .particle2 {
-    -moz-transition: left 0.2s, top 0.2s, transform 0.6s, background 1s;
+    -moz-transition: left 0.2s, top 0.2s, width 0.6s, height 0.6s, background 1s;
     -moz-transition-timing-function: ease-out;
-    transition: left 0.2s, top 0.2s, transform 0.6s, background 1s;
+    transition: left 0.2s, top 0.2s, width 0.6s, height 0.6s, background 1s;
     transition-timing-function: ease-out;
-    -webkit-transition: left 0.2s, top 0.2s, transform 0.6s, background 1s;
+    -webkit-transition: left 0.2s, top 0.2s, width 0.6s, height 0.6s, background 1s;
     -webkit-transition-timing-function: ease-out;
 }
 .p {
     position: absolute;
     border-radius: 50%;
-    transform: translate(-50%, -50%) scale(1,1);
+    transform: scale(1.1) translate(-50%,-50%);
 }
   </style>
   
@@ -97,77 +97,76 @@
 
 <script type='text/javascript'>//<![CDATA[
 window.onload=function(){
-$('.c').each(function(i) {
-    var sz = Math.min($(window).height(), $(window).width())*0.32;
-    $(this).css('width', sz+"px");
-    $(this).css('height', sz+"px");
-    $(this).css("top", Math.max(0, ((window.innerHeight - $(this).outerHeight()) / 2)) + "px");
-    $(this).css("left", Math.max(0, ((window.innerWidth - $(this).outerWidth()) / 2)) + "px");
-});
-
-$("#heart").click(function() {
-    $('.c').each(function(i) {
-    var sz = Math.min($(window).height(), $(window).width())*0.32;
-    $(this).css('width', sz+"px");
-    $(this).css('height', sz+"px");
-    $(this).css("top", Math.max(0, ((window.innerHeight - $(this).outerHeight()) / 2)) + "px");
-    $(this).css("left", Math.max(0, ((window.innerWidth - $(this).outerWidth()) / 2)) + "px");
-        var me = this;
-        this.style.animation = "none";
-        setTimeout(function() {
-            me.style.animation = "";
-        }, 10);
-    });
-    var me = this;
-    this.style.animation = "none";
-    setTimeout(function() {
-        me.style.animation = "";
-    }, 10);
-    setTimeout(function() {
-        var ps = [];
-        var xsz = Math.min($(window).height(), $(window).width())*0.16;
-        var xxsz = xsz/8;
-        var szs = "width:"+xxsz+"px;height:"+xxsz+"px;";
+	function LIKE() {
+		var H = $("#heart").clone();
+		$("#con").text("");
+		//$("#heart").remove();
+		//$(".c").remove();
+		var clist = ["circle", "circle2"];
+		for(var i = 0; i < 2; i++) {
+			var xx = $("<div class=\"c\"></div>");
+			$("#con").append(xx);
+			var sz = Math.min($(window).height(), $(window).width())*0.32;
+			xx.data("CL", clist[i]);;
+			xx.css('width', sz+"px");
+			xx.css('height', sz+"px");
+			xx.css("top", Math.max(0, ((window.innerHeight - sz) / 2)) + "px");
+			xx.css("left", Math.max(0, ((window.innerWidth - sz) / 2)) + "px");
+		}
+		$(".c").each(function() {
+			$(this).addClass($(this).data("CL"));
+		});
+		$("#con").append(H);
+		H.click(LIKE);
+		var xsz = Math.min($(window).height(), $(window).width())*0.16;
+		var xxsz = xsz/7;
+		var szs = "width:"+xxsz+"px;height:"+xxsz+"px;";
 		var ww = window.innerWidth/2;
 		var hh = window.innerHeight/2;
-        var c1 = ["#90d0f0", "#d090f0", "#90f0a0", "#f09090", "#90d0f0", "#90d0f0", "#90f0a0"]; 
-        var c2 = ["#90d0f0", "#d090f0", "#90f0a0", "#f09090", "#90d0f0", "#d090f0", "#90f0a0"]; 
-        var c3 = ["#e0b0f7", "#f7c040", "#e0c0a0", "#37a0ef", "#a077f0", "#a077f0", "#a077f0"]; 
-        for(var i = 0; i < 7; i++) {
-            var angle = Math.PI/3.5*i;
-			var x = ww+Math.cos(angle)*xsz/2.1, y=hh+Math.sin(angle)*xsz/2.1;
-        	var np = $("<div class=\"p particle1\" style=\""+szs+"top:"+y+"px;left:"+x+"px;background:"+c1[i]+";\"></div>");
-           	$("#con").append(np);
-            np.__angle = angle;
-            np.__xsz = xsz*1.5;
-            np.__bg = c3[i];
-            ps.push(np);
-            angle += Math.PI/14;
+		var c1 = ["#90d0f0", "#d090f0", "#90f0a0", "#f09090", "#90d0f0", "#90d0f0", "#90f0a0"];
+		var c2 = ["#90d0f0", "#d090f0", "#90f0a0", "#f09090", "#90d0f0", "#d090f0", "#90f0a0"];
+		var c3 = ["#e0b0f7", "#f7c040", "#e0c0a0", "#37a0ef", "#a077f0", "#a077f0", "#a077f0"];
+		for(var i = 0; i < 7; i++) {
+			function X(angle, xsz, c, u) {
+				return function () {
+					var x = ww+Math.cos(angle)*xsz;
+					var y = hh+Math.sin(angle)*xsz;
+					u.css({"top": y+"px",
+						"left": x+"px",
+						"background": c,
+						"width": "0px",
+						"height": "0px",
+						"opacity": "1"
+					});
+				}
+			}
+			var angle = Math.PI/3.5*i;
+			var x = ww+Math.cos(angle)*xsz/2.2, y=hh+Math.sin(angle)*xsz/2.2;
+			var np = $("<div class=\"p particle1\"></div>");
+			$("#con").append(np);
+			np.css({"width": xxsz+"px",
+				   "height": xxsz+"px",
+				   "top": y+"px",
+				   "left": x+"px",
+				   "background": c1[i],
+				   "opacity": "0"
+			});
+			setTimeout(X(angle, xsz*1.5, c3[i], np), 200);
+			angle += Math.PI/16;
 			x = ww+Math.cos(angle)*xsz/2, y=hh+Math.sin(angle)*xsz/2;
-        	np = $("<div class=\"p particle2\" style=\""+szs+"top:"+y+"px;left:"+x+"px;background:"+c2[i]+";\"></div>");
-           	$("#con").append(np);
-            np.__angle = angle;
-            np.__xsz = xsz*1.3;
-            np.__bg = c3[i];
-            ps.push(np);
-        }
-        setTimeout(function() {
-            for(var i = 0; i < 14; i++) {
-             	var angle = ps[i].__angle;
-                var xsz = ps[i].__xsz;
-             	var x = ww+Math.cos(angle)*xsz, y=hh+Math.sin(angle)*xsz;
-             	ps[i].css("top", y+"px");
-             	ps[i].css("left", x+"px");
-                ps[i].css("background", ps[i].__bg);
-                ps[i].css("transform", "translate(-50%, -50%) scale(0,0)");
-                $(ps[i]).on("transitionend webkitTransitionEnd", function(){
-                    $(ps[i]).remove();
-                });
-            }
-        },10);
-    }, 100);
-});
-    
+			np = $("<div class=\"p particle2\"></div>");
+			$("#con").append(np);
+			np.css({"width": xxsz+"px",
+				   "height": xxsz+"px",
+				   "top": y+"px",
+				   "left": x+"px",
+				   "background": c2[i],
+				   "opacity": "0"
+			});
+			setTimeout(X(angle, xsz*1.35, c3[i], np), 200);
+		}
+	};
+	LIKE();
 }//]]> 
 
 </script>
@@ -175,8 +174,6 @@ $("#heart").click(function() {
 </head>
 <body>
   <div id="con">
-<div id="circle" class="c"></div>
-<div id="circle2" class="c"></div>
 
 <img id="heart"  src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiCiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB3aWR0aD0iMTc3IgogICBoZWlnaHQ9IjE3NyIKICAgdmlld0JveD0iMCAwIDE3Ni45OTk5OSAxNzYuOTk5OTkiCiAgIGlkPSJzdmcyIgogICB2ZXJzaW9uPSIxLjEiCiAgIGlua3NjYXBlOnZlcnNpb249IjAuOTEgcjEzNzI1IgogICBzb2RpcG9kaTpkb2NuYW1lPSJkcmF3aW5nLTEuc3ZnIj4KICA8ZGVmcwogICAgIGlkPSJkZWZzNCIgLz4KICA8c29kaXBvZGk6bmFtZWR2aWV3CiAgICAgaWQ9ImJhc2UiCiAgICAgcGFnZWNvbG9yPSIjZmZmZmZmIgogICAgIGJvcmRlcmNvbG9yPSIjNjY2NjY2IgogICAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgICBpbmtzY2FwZTpwYWdlb3BhY2l0eT0iMC4wIgogICAgIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiCiAgICAgaW5rc2NhcGU6em9vbT0iNCIKICAgICBpbmtzY2FwZTpjeD0iMTU1LjM1MTE1IgogICAgIGlua3NjYXBlOmN5PSI1OC42OTUyMzgiCiAgICAgaW5rc2NhcGU6ZG9jdW1lbnQtdW5pdHM9InB4IgogICAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9ImxheWVyMSIKICAgICBzaG93Z3JpZD0idHJ1ZSIKICAgICBzaG93Z3VpZGVzPSJmYWxzZSIKICAgICBpbmtzY2FwZTpzbmFwLXBhdGgtY2xpcD0idHJ1ZSIKICAgICBpbmtzY2FwZTpzbmFwLXBhdGgtbWFzaz0idHJ1ZSIKICAgICBpbmtzY2FwZTp3aW5kb3ctd2lkdGg9IjI1NjAiCiAgICAgaW5rc2NhcGU6d2luZG93LWhlaWdodD0iMTM1MyIKICAgICBpbmtzY2FwZTp3aW5kb3cteD0iMCIKICAgICBpbmtzY2FwZTp3aW5kb3cteT0iMCIKICAgICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIgogICAgIHVuaXRzPSJweCI+CiAgICA8aW5rc2NhcGU6Z3JpZAogICAgICAgdHlwZT0ieHlncmlkIgogICAgICAgaWQ9ImdyaWQ0MzE0IiAvPgogIDwvc29kaXBvZGk6bmFtZWR2aWV3PgogIDxtZXRhZGF0YQogICAgIGlkPSJtZXRhZGF0YTciPgogICAgPHJkZjpSREY+CiAgICAgIDxjYzpXb3JrCiAgICAgICAgIHJkZjphYm91dD0iIj4KICAgICAgICA8ZGM6Zm9ybWF0PmltYWdlL3N2Zyt4bWw8L2RjOmZvcm1hdD4KICAgICAgICA8ZGM6dHlwZQogICAgICAgICAgIHJkZjpyZXNvdXJjZT0iaHR0cDovL3B1cmwub3JnL2RjL2RjbWl0eXBlL1N0aWxsSW1hZ2UiIC8+CiAgICAgICAgPGRjOnRpdGxlPjwvZGM6dGl0bGU+CiAgICAgIDwvY2M6V29yaz4KICAgIDwvcmRmOlJERj4KICA8L21ldGFkYXRhPgogIDxnCiAgICAgaW5rc2NhcGU6bGFiZWw9IkxheWVyIDEiCiAgICAgaW5rc2NhcGU6Z3JvdXBtb2RlPSJsYXllciIKICAgICBpZD0ibGF5ZXIxIgogICAgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsLTg3NS4zNjIyMikiPgogICAgPHBhdGgKICAgICAgIHN0eWxlPSJvcGFjaXR5OjE7ZmlsbDojZTIyNjRkO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDoyMi43MDAwMDA3NjtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDo0O3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2UtZGFzaG9mZnNldDowO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgICBkPSJtIDEzMi4yMjE5Niw4NzkuODU5NzEgYyAtMTkuOTk0MSwtMC4yNTI1NSAtMzcuNzI5ODk1LDEyLjc4ODM0IC00My40NTAyMzIsMzEuOTQ4MzIgbCAtMC4xNzQxNzQsLTAuMDI2NSBjIDAsMC4wMDMgLTAuMDA1NywxMGUtNCAtMC4wMDksMC4wMDIgbCAtMC4xNzQxNzUsMC4wMjY0IGMgLTUuNzIwMzg1LC0xOS4xNTk2MiAtMjMuNDU2MTk4LC0zMi4yMDA1IC00My40NTAyOSwtMzEuOTQ3OTUgLTI0LjY0MDMxNywwLjMxODM4IC00NC4zODc2MTgzMywyMC40OTUzOCAtNDQuMTc1NTgzMiw0NS4xMzY4NCAwLjAwNTY0MiwwLjE1NTEgMC4wMTI0MTYzLDAuMzEwMTYgMC4wMTk4NjY4LDAuNDY1MTkgbCAtMC4wMjIwMTE3LDAuMDA1IGMgLTEuMTM0MjcwMjUsMjMuNDc1OTIgOC4zNTEzNjQ0LDg3Ljk4Mjk5IDg3LjgwMjIxNzEsMTIxLjAwOTM5IDAuMDAyMywwIDAuMDA1NywwIDAuMDA5LDAgNzkuNDUwODQyLC0zMy4wMjY0IDg4LjkzNDI3MiwtOTcuNTMzNDcgODcuODAwMDAyLC0xMjEuMDA5MzkgbCAtMC4wMjIsLTAuMDA1IGMgMC4wMDgsLTAuMTU1MDMgMC4wMTQsLTAuMzEwMDkgMC4wMTk5LC0wLjQ2NTE5IDAuMjEyMDQsLTI0LjY0MDYxIC0xOS41MzM5NCwtNDQuODE3MjUgLTQ0LjE3MzM5LC00NS4xMzY4MyB6IgogICAgICAgaWQ9InBhdGg0MjI2IgogICAgICAgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIKICAgICAgIHNvZGlwb2RpOm5vZGV0eXBlcz0iY2NjY2NjY2NjY2NjY2NjYyIgLz4KICA8L2c+Cjwvc3ZnPgo=">
 </div>
