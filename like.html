@@ -4,7 +4,7 @@
   <title>Clike me</title>
   
   
-  <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js'></script>
+  <script type='text/javascript' src='jquery.min.js'></script>
   
   <style type='text/css'>
     @keyframes pop {
@@ -115,13 +115,13 @@ $("#heart").click(function() {
         this.style.animation = "none";
         setTimeout(function() {
             me.style.animation = "";
-        }, 0);
+        }, 10);
     });
     var me = this;
     this.style.animation = "none";
     setTimeout(function() {
         me.style.animation = "";
-    }, 0);
+    }, 10);
     setTimeout(function() {
         var ps = [];
         var xsz = Math.min($(window).height(), $(window).width())*0.16;
