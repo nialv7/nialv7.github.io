@@ -165,7 +165,7 @@ $("#heart").click(function() {
                 ps[i].css("background", ps[i].__bg);
                 ps[i].css("transform", "translate(-50%, -50%) scale(0,0)");
                 $(ps[i]).on("transitionend webkitTransitionEnd", function(){
-                    //$(ps[i]).remove();
+                    $(ps[i]).remove();
                 });
             }
         },10);
